@@ -1,0 +1,14 @@
+feature_engine==1.9.3
+imbalanced_learn==0.13.0
+joblib==1.5.2
+kagglehub==0.3.13
+matplotlib==3.7.2
+numpy==1.26.4
+pandas==2.3.3
+scikit_learn==1.2.2
+scikit_posthocs==0.11.4
+scipy==1.16.3
+seaborn==0.13.2
+statsmodels==0.14.5
+tabulate==0.9.0
+xgboost==3.1.2

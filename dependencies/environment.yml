@@ -1,0 +1,10 @@
+# use the command conda env create -f environment.yml to recreate the environment locally and make sure requirements.txt is in same file
+name: kaggle_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11  
+  - pip
+  - pip:
+    - -r requirements.txt
