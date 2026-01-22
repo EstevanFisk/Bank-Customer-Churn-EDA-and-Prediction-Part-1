@@ -60,3 +60,50 @@ To handle the high class imbalance (~20% churn) and mixed data types, I construc
 1.  **Winsorization:** Capping extreme outliers in numerical columns using IQR.
 2.  **Transformation:** Log1p transform for skewed variables (e.g., Age).
 3.  **Resampling:** Applied **SMOTENC** (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) to balance the target classes.
+4.  **Feature Engineering:** Integrated custom **Interaction Terms**:
+    * $Products \times ZeroBalance$
+    * $ActiveMember \times Age$
+    * $Products \times Age$
+
+---
+
+## 🤖 Model Implementation & Performance
+I benchmarked five classification algorithms: **Logistic Regression, SVC, Random Forest, AdaBoost, and XGBoost**.
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+| :--- | :--- | :--- | :--- | :--- |
+| **Logistic Regression** | **0.9986** | 0.9951 | 0.9982 | **0.9966** |
+| **XGBoost** | 0.9986 | 0.9951 | 0.9982 | 0.9966 |
+
+### Final Selection: Logistic Regression
+Despite the power of ensemble methods, **Logistic Regression** (with L1 penalty) was chosen for its interpretability and near-perfect performance. The model achieves 99% accuracy on the test set, primarily driven by the `Complain` variable.
+
+
+
+---
+
+## 💡 Strategic Recommendations
+1.  **The Complaint Task Force:** Since complaints are a nearly 1:1 precursor to churn, the bank should implement an immediate "Red Alert" protocol for any customer filing a formal complaint.
+2.  **Product Bundling:** Investigate why customers with 3+ products are leaving. This suggests that the bank's "premium" or "complex" offerings may be driving friction rather than loyalty.
+3.  **Targeting "Silent Churners":** Future models should exclude the `Complain` variable to identify subtle behavioral patterns in customers who "ghost" the bank without providing feedback.
+
+---
+
+## 🛠️ Installation & Usage
+1.  **Clone the Repo:**
+    ```bash
+    git clone [https://github.com/yourusername/bank-churn-prediction.git](https://github.com/yourusername/bank-churn-prediction.git)
+    ```
+2.  **Install Dependencies:**
+    ```bash
+    pip install pandas numpy seaborn scikit-learn imbalanced-learn feature-engine tabulate
+    ```
+3.  **Run the Notebook:**
+    Execute `bank_churn_analysis.ipynb` to reproduce the statistical tests and pipeline.
+
+---
+
+### Connect with Me
+* [Portfolio Website](https://estevanfisk.com/)
+* [GitHub Profile](https://github.com/EstevanFisk)
+* [Kaggle Profile](https://www.kaggle.com/bgfootball04)
